@@ -49,5 +49,15 @@ def save2df(load_dt='20120101'):
     df.to_parquet('~/tmp/test_parquet', partition_cols=['load_dt'])
     return df
 
+def apply_type2df(load_dt="20120101", path="~/tmp/test_parquet"):
+    df=pd.read_parquet(f'{path}/load_dt={load_dt}')
+    num_cols = ['rnum', 'rank', 'rankInten', 'salesAmt', 'audiCnt', 'audiAcc', 'scrnCnt', 'showCnt', 'salesShare', 'salesInten', 'salesChange', 'audiInten', 'audiChange']
+#    for c in num_cols:
+#        df[c]=pd.to_numeric(df[c])
+
+    df[num_cols]=df[num_cols].apply(pd.to_numeric)
+    return df
+# same as for
+
 def echo(yaho):
     return yaho
