@@ -1,4 +1,4 @@
-from movie.api.call import gen_url,req, get_key, req2df, list2df, save2df
+from movie.api.call import gen_url,req, get_key, req2df, list2df, save2df, echo
 import pandas as pd
 
 def test_private_key():
@@ -43,4 +43,6 @@ def test_save2df():
     assert 'load_dt' in df.columns
 
 
-
+def test_echo():
+    r=echo("hello")
+    assert r=="hello"
