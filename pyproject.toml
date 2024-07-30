@@ -1,6 +1,6 @@
 [project]
 name = "movie"
-version = "0.2.2"
+version = "0.3.0"
 description = "Data Processing of movies"
 authors = [
     {name = "EstherCho-7", email = "dkgkqm777@gmail.com"},
