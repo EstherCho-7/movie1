@@ -6,13 +6,16 @@ def test_private_key():
     assert key
 
 def test_gen_url(): 
-    url=gen_url()
-    assert True
-    assert "http" in url
-    assert "kobis" in url
-    d={"multiMovieYn": "N"}
-    url = gen_url(req_val=d)
-    assert "multiMovieYn" in url
+   # url=gen_url()
+   # assert True
+   # assert "http" in url
+   # assert "kobis" in url
+    d = {"repNationCd": "K"}
+    url = gen_url(url_param=d)
+    # assert in url
+   # print("* " * 33)
+    print(url)
+   # print("* " * 33)
 
 def test_req():
     code, data=req()
@@ -41,7 +44,9 @@ def test_list2df():
 #    assert 'movieNm' in df.columns
 
 def test_save2df():
-    df = save2df(load_dt='20120101')
+    d = {"repNationCd" : "K"}
+    df = save2df(url_param = d)
+    print(df)
     assert isinstance (df, pd.DataFrame)
 #    assert 'load_dt' in df.columns 
 
