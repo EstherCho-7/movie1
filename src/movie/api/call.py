@@ -48,7 +48,7 @@ def list2df(load_dt='20120101', url_param={}):
 
 def save2df(load_dt='20120101', url_param={}):
     """"airflow"""
-    df=list2df(load_dt, url_param)
+    df=list2df(load_dt=load_dt, url_param=url_param)
     df['load_dt']=load_dt
     print(df.head())
     # add column 'load_dt' in df (forman: YYYYMMDD)
