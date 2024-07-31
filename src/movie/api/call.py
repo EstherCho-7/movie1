@@ -11,10 +11,13 @@ def req(load_dt="20120101"):
     print(data)
     return code, data
 
-def gen_url(load_dt="20120101"):
+def gen_url(dt="20120101", req_val={"multiMovieYn" : "N"}):
     base_url="http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json"
     key=get_key() 
-    url=f"{base_url}?key={key}&targetDt={load_dt}"
+    url=f"{base_url}?key={key}&targetDt={dt}"
+    for k, v in req_val.items():
+        # url=url+f"&multiMovieYn=N"
+        url=url+f"&{k}={v}"
     return url 
 
 def get_key():
@@ -39,7 +42,7 @@ def list2df(load_dt='20120101'):
     df = pd.DataFrame(l)
     return df
 
-def save2df(load_dt='20120101'):
+def save2df(load_dt='20120101', url_param={}):
     """"airflow"""
     df=list2df(load_dt)
     df['load_dt']=load_dt

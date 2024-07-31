@@ -10,6 +10,9 @@ def test_gen_url():
     assert True
     assert "http" in url
     assert "kobis" in url
+    d={"multiMovieYn": "N"}
+    url = gen_url(req_val=d)
+    assert "multiMovieYn" in url
 
 def test_req():
     code, data=req()
@@ -40,7 +43,7 @@ def test_list2df():
 def test_save2df():
     df = save2df(load_dt='20120101')
     assert isinstance (df, pd.DataFrame)
-#    assert 'load_dt' in df.columns
+#    assert 'load_dt' in df.columns 
 
 
 def test_echo():
@@ -54,6 +57,4 @@ def test_apply_type2df():
     for c in num_cols:
         assert df[c].dtype in ['int64', 'float64']
 
-
- 
 
