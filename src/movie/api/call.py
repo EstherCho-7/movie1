@@ -53,7 +53,7 @@ def save2df(load_dt='20120101', url_param={}):
     print(df.head())
     # add column 'load_dt' in df (forman: YYYYMMDD)
     # saving file, partitioning (standard: load_dt)
-    df.to_parquet('~/tmp/test_parquet', partition_cols=['load_dt'])
+    # df.to_parquet('~/tmp/test_parquet', partition_cols=['load_dt'])
     return df
 
 def apply_type2df(load_dt="20120101", path="~/tmp/test_parquet"):
